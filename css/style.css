@@ -398,33 +398,34 @@ body {
     overflow: hidden;
     position: relative;
     padding: var(--spacing-xl) 0;
-    background: linear-gradient(90deg,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0) 5%,
-            rgba(255, 255, 255, 0) 95%,
-            rgba(255, 255, 255, 1) 100%);
 }
 
 .clients-marquee {
     display: flex;
     gap: var(--spacing-xl);
-    animation: marquee 40s linear infinite;
-    will-change: transform;
+    overflow-x: auto;
+    scroll-behavior: auto;
+    /* Essential for JS animation */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+    padding-bottom: 20px;
+    /* Hide scrollbar height */
+    margin-bottom: -20px;
+    /* Hide scrollbar height */
 }
 
-.clients-marquee:hover {
-    animation-play-state: paused;
+.clients-marquee::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
 }
 
-@keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
+/* 
+@keyframes marquee removed to allow manual scrolling. 
+Auto-scroll will be handled by JavaScript 
+*/
 
 .client-logo-item {
     flex-shrink: 0;
@@ -1263,6 +1264,7 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
 /* ===========================
    Go To Top Button
    =========================== */
@@ -1467,5 +1469,22 @@ body {
 
     .director-main-content {
         padding-left: 0;
+    }
+}
+
+/* ===========================
+   Mobile Video & Marquee Adjustments
+   =========================== */
+@media (max-width: 768px) {
+    .hero-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .clients-marquee {
+        /* Ensure touch scrolling works smoothly on mobile */
+        padding-bottom: 10px;
+        margin-bottom: -10px;
     }
 }

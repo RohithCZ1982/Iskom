@@ -238,3 +238,47 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+
+// Client Marquee Auto-Scroll
+document.addEventListener('DOMContentLoaded', function () {
+    const marquee = document.querySelector('.clients-marquee');
+    if (!marquee) return;
+
+    // Clone content once for seamless loop
+    const content = marquee.innerHTML;
+    marquee.innerHTML += content;
+
+    // Calculate width of one set of items to know when to reset
+    // We can estimate half scrollWidth after cloning
+    // But better to accept slight imperfection or measure
+
+    let scrollSpeed = 3; // Faster as requested (was 2)
+    let isPaused = false;
+    let animationId;
+
+    // Pause on hover or touch interaction
+    marquee.addEventListener('mouseenter', () => isPaused = true);
+    marquee.addEventListener('mouseleave', () => isPaused = false);
+    marquee.addEventListener('touchstart', () => isPaused = true);
+    marquee.addEventListener('touchend', () => {
+        setTimeout(() => isPaused = false, 2000); // Resume after delay
+    });
+
+    function autoScroll() {
+        if (!isPaused) {
+            marquee.scrollLeft += scrollSpeed;
+
+            // Seamless loop: roughly when half is scrolled (original content width)
+            // we jump back to start (0). 
+            // Since we doubled content, scrollWidth is approx 2x original width.
+            // Reset when scrollLeft >= scrollWidth / 2
+            if (marquee.scrollLeft >= (marquee.scrollWidth / 2)) {
+                marquee.scrollLeft = 0;
+            }
+        }
+        animationId = requestAnimationFrame(autoScroll);
+    }
+
+    autoScroll();
+});
