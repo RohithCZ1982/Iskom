@@ -1313,8 +1313,8 @@ Auto-scroll will be handled by JavaScript
 }
 
 .director-card {
-    display: grid;
-    grid-template-columns: 350px 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-xl);
     background-color: var(--color-white);
     padding: var(--spacing-xl);
@@ -1322,9 +1322,18 @@ Auto-scroll will be handled by JavaScript
     box-shadow: var(--shadow-md);
     overflow: hidden;
     align-items: flex-start;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.director-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .director-sidebar {
+    flex: 1 1 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1403,7 +1412,9 @@ Auto-scroll will be handled by JavaScript
 }
 
 .director-main-content {
+    flex: 2 1 400px;
     padding-left: var(--spacing-md);
+    min-width: 0;
 }
 
 .profile-section {
@@ -1455,7 +1466,6 @@ Auto-scroll will be handled by JavaScript
 /* Responsive adjustments for Director Section */
 @media (max-width: 900px) {
     .director-card {
-        grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
 
@@ -1465,10 +1475,12 @@ Auto-scroll will be handled by JavaScript
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         padding-bottom: var(--spacing-lg);
         margin-bottom: var(--spacing-lg);
+        flex-basis: 100%;
     }
 
     .director-main-content {
         padding-left: 0;
+        flex-basis: 100%;
     }
 }
 
@@ -1494,9 +1506,55 @@ Auto-scroll will be handled by JavaScript
    Mobile Video & Marquee Adjustments
    =========================== */
 @media (max-width: 768px) {
+
+    /* Adjust container padding for mobile */
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .director-card {
+        padding: var(--spacing-sm);
+        border-radius: 8px;
+    }
+
+    .director-photo-frame {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        aspect-ratio: 250 / 300;
+        margin: 0 auto var(--spacing-md) auto;
+    }
+
+    .director-sidebar {
+        margin-bottom: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+        align-items: center;
+        text-align: center;
+    }
+
+    .director-contact-info {
+        width: 100%;
+    }
+
+    .profile-section p {
+        text-align: left;
+        /* Fix justification issues on mobile */
+        font-size: 1rem;
+    }
+
+    /* Reduce font sizes for headers on mobile */
+    .director-bio h3 {
+        font-size: 1.5rem;
+    }
+
+    .profile-section h4 {
+        font-size: 1.1rem;
+    }
+
+    /* Ensure hero video doesn't cause overflow */
     .hero-video {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 
