@@ -42,23 +42,50 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Header scroll effect
+    // Header scroll effect with transparent state
     let lastScroll = 0;
     const header = document.getElementById('header');
+    const heroVideo = document.querySelector('.hero-video');
+    const isDesktop = window.innerWidth > 768;
 
     window.addEventListener('scroll', function () {
         const currentScroll = window.pageYOffset;
 
+        // Desktop only: transparent header at top
+        if (isDesktop) {
+            if (currentScroll < 50) {
+                header.classList.add('transparent');
+            } else {
+                header.classList.remove('transparent');
+            }
+        }
+
+        // Adjust padding based on scroll
         if (currentScroll > 100) {
             header.style.padding = '0.5rem 0';
-            header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
         } else {
             header.style.padding = '1rem 0';
-            header.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.15)';
         }
 
         lastScroll = currentScroll;
     });
+
+    // Hero video visibility observer - pause when less than 50% visible
+    if (heroVideo) {
+        const videoObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.intersectionRatio < 0.5) {
+                    heroVideo.pause();
+                } else {
+                    heroVideo.play();
+                }
+            });
+        }, {
+            threshold: [0, 0.5, 1]
+        });
+
+        videoObserver.observe(heroVideo);
+    }
 
     // Intersection Observer for fade-in animations
     const observerOptions = {
@@ -126,6 +153,24 @@ document.addEventListener('DOMContentLoaded', function () {
         statsObserver.observe(el);
     });
 
+    // Section Heading Animations
+    const headingObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                headingObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    // Observe all section titles and subtitles
+    document.querySelectorAll('.section-title, .section-subtitle, .section-subtitle-dark, .clients-subtitle').forEach(el => {
+        headingObserver.observe(el);
+    });
+
 
     // Form validation (for contact page)
     const contactForm = document.getElementById('contactForm');
@@ -170,4 +215,26 @@ document.addEventListener('DOMContentLoaded', function () {
             link.classList.add('active');
         }
     });
+});
+// Go To Top Button Functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const btnTop = document.getElementById('btnTop');
+
+    if (btnTop) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                btnTop.classList.add('show');
+            } else {
+                btnTop.classList.remove('show');
+            }
+        });
+
+        btnTop.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });

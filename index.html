@@ -41,11 +41,17 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="images/hero_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Excellence in Project Quality and Services Management</h1>
-                <p class="hero-subtitle">" Innovation 2 Reality "</p>
+        <div class="hero-content-wrapper">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Excellence in Project Quality and Services Management</h1>
+                    <p class="hero-subtitle">" Innovation 2 Reality "</p>
+                </div>
             </div>
         </div>
     </section>
@@ -132,15 +138,158 @@
     <!-- Clients Section -->
     <section class="section section-light" id="clients">
         <div class="container">
-            <h2 class="section-title">OUR PAST AND PRESENT CLIENTS</h2>
-            <div class="clients-grid">
-                <div class="client-item">BRS Cleaning Solutions, Perth</div>
-                <div class="client-item">VBAJV, Sydney</div>
-                <div class="client-item">BP Certification, Perth</div>
-                <div class="client-item">Go2 Homes Builders, Perth</div>
-                <div class="client-item">Big Picture Project Management Services, Perth</div>
-                <div class="client-item">ADCO Construction, Perth</div>
-                <div class="client-item">Lofoto Pty Ltd, Perth</div>
+            <h2 class="section-title">TRUSTED BY LEADING ORGANIZATIONS</h2>
+            <p class="clients-subtitle">Proud to partner with industry leaders across Australia</p>
+            <div class="clients-marquee-wrapper">
+                <div class="clients-marquee">
+                    <!-- First set of logos -->
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <img src="images/brs.png" alt="BRS Cleaning Solutions">
+                            <div class="client-info">
+                                <h4>BRS Cleaning Solutions</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <div class="client-logo-placeholder"
+                                style="background: linear-gradient(135deg, #E67E22 0%, #D35400 100%);">
+                                <span>VBAJV</span>
+                            </div>
+                            <div class="client-info">
+                                <h4>VBAJV</h4>
+                                <p>Sydney, NSW</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <div class="client-logo-placeholder"
+                                style="background: linear-gradient(135deg, #27AE60 0%, #1E8449 100%);">
+                                <span>BP</span>
+                            </div>
+                            <div class="client-info">
+                                <h4>BP Certification</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <img src="images/go2home.webp" alt="Go2 Homes Builders">
+                            <div class="client-info">
+                                <h4>Go2 Homes Builders</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <img src="images/bigpicture.png" alt="Big Picture PM">
+                            <div class="client-info">
+                                <h4>Big Picture PM</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <img src="images/ADCO.png" alt="ADCO Construction">
+                            <div class="client-info">
+                                <h4>ADCO Construction</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <div class="client-logo-placeholder"
+                                style="background: linear-gradient(135deg, #16A085 0%, #117A65 100%);">
+                                <span>LFT</span>
+                            </div>
+                            <div class="client-info">
+                                <h4>Lofoto Pty Ltd</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <img src="images/brs.png" alt="BRS Cleaning Solutions">
+                            <div class="client-info">
+                                <h4>BRS Cleaning Solutions</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <div class="client-logo-placeholder"
+                                style="background: linear-gradient(135deg, #E67E22 0%, #D35400 100%);">
+                                <span>VBAJV</span>
+                            </div>
+                            <div class="client-info">
+                                <h4>VBAJV</h4>
+                                <p>Sydney, NSW</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <div class="client-logo-placeholder"
+                                style="background: linear-gradient(135deg, #27AE60 0%, #1E8449 100%);">
+                                <span>BP</span>
+                            </div>
+                            <div class="client-info">
+                                <h4>BP Certification</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <img src="images/go2home.webp" alt="Go2 Homes Builders">
+                            <div class="client-info">
+                                <h4>Go2 Homes Builders</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <img src="images/bigpicture.png" alt="Big Picture PM">
+                            <div class="client-info">
+                                <h4>Big Picture PM</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <img src="images/ADCO.png" alt="ADCO Construction">
+                            <div class="client-info">
+                                <h4>ADCO Construction</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-logo-item">
+                        <div class="client-logo-container">
+                            <div class="client-logo-placeholder"
+                                style="background: linear-gradient(135deg, #16A085 0%, #117A65 100%);">
+                                <span>LFT</span>
+                            </div>
+                            <div class="client-info">
+                                <h4>Lofoto Pty Ltd</h4>
+                                <p>Perth, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -151,6 +300,13 @@
             <p>&copy; 2026 ISKOM Solutions. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Go To Top Button -->
+    <a href="#" class="btn-top" id="btnTop" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M12 4l-8 8h6v8h4v-8h6z" />
+        </svg>
+    </a>
 
     <script src="js/script.js"></script>
 </body>
