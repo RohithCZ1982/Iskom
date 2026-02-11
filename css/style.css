@@ -1472,6 +1472,24 @@ Auto-scroll will be handled by JavaScript
     }
 }
 
+@media (max-width: 600px) {
+    .director-card {
+        padding: var(--spacing-md);
+    }
+
+    .director-photo-frame {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        aspect-ratio: 250 / 300;
+    }
+
+    .director-sidebar {
+        margin-bottom: var(--spacing-md);
+        padding-bottom: var(--spacing-md);
+    }
+}
+
 /* ===========================
    Mobile Video & Marquee Adjustments
    =========================== */
